@@ -74,7 +74,7 @@ export function ThankYouPage() {
                         rel="noopener noreferrer"
                         className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[16px] md:text-[18px] text-[#008e5c] hover:text-[#007a4f] underline"
                       >
-                        https://form.arnaudgay.fr
+                        https://form-h5.netlify.app
                       </a>
                     </p>
                     <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[14px] md:text-[15px] text-[#717182] italic">
