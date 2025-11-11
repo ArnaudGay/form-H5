@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import svgPaths from './imports/svg-6r39tdbsgm';
 import { ScaleQuestion } from './components/scale-question';
 import { ThankYouPage } from './components/thank-you-page';
+import { IntroPage } from './components/introduction-page';
+import { DemographicsPage } from './components/demographic-questionnaire';
+import { submitQuestionnaireData } from './services/submissionService';
 
 interface Subject {
   id: number;
@@ -16,6 +19,12 @@ interface Answers {
     importance: string | null;
     satisfaction: string | null;
   };
+}
+
+interface DemographicsData {
+  age: string;
+  education: string;
+  region: string;
 }
 
 const subjects: Subject[] = [
@@ -141,6 +150,8 @@ const subjects: Subject[] = [
 ];
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState<'intro' | 'demographics' | 'questionnaire' | 'thankyou'>('intro');
+  const [demographicsData, setDemographicsData] = useState<DemographicsData | null>(null);
   const [currentSubjectIndex, setCurrentSubjectIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [isCompleted, setIsCompleted] = useState(false);
@@ -184,8 +195,40 @@ export default function App() {
     }
   };
 
-  const handleValidate = () => {
-    setIsCompleted(true);
+  const handleValidate = async () => {
+    // Préparer les données à envoyer
+    if (!demographicsData) {
+      console.error('Demographics data is missing');
+      setCurrentPage('thankyou');
+      return;
+    }
+
+    // Convertir les réponses en format pour Supabase
+    const answersArray = Object.entries(answers).map(([subjectId, answer]) => ({
+      subjectId: parseInt(subjectId),
+      importance: answer.importance,
+      satisfaction: answer.satisfaction,
+    }));
+
+    const submissionData = {
+      demographics: demographicsData,
+      answers: answersArray,
+      submittedAt: new Date().toISOString(),
+    };
+
+    // Envoyer les données à Supabase
+    try {
+      const result = await submitQuestionnaireData(submissionData);
+      if (!result.success) {
+        console.error('Error submitting data:', result.error);
+        // On continue quand même pour afficher la page de remerciement
+      }
+    } catch (error) {
+      console.error('Unexpected error submitting data:', error);
+      // On continue quand même pour afficher la page de remerciement
+    }
+
+    setCurrentPage('thankyou');
   };
 
   const handleBack = () => {
@@ -198,8 +241,31 @@ export default function App() {
   const isLastSubject = currentSubjectIndex === subjects.length - 1;
   const canProceed = currentAnswers.importance !== null && currentAnswers.satisfaction !== null;
 
+  const handleStartQuestionnaire = () => {
+    setCurrentPage('demographics');
+  };
+
+  const handleDemographicsComplete = (data: DemographicsData) => {
+    setDemographicsData(data);
+    setCurrentPage('questionnaire');
+  };
+
+  const handleBackToIntro = () => {
+    setCurrentPage('intro');
+  };
+
+  // Afficher la page d'introduction
+  if (currentPage === 'intro') {
+    return <IntroPage onStart={handleStartQuestionnaire} />;
+  }
+
+  // Afficher la page démographique
+  if (currentPage === 'demographics') {
+    return <DemographicsPage onComplete={handleDemographicsComplete} onBack={handleBackToIntro} />;
+  }
+
   // Afficher la page de remerciement si complété
-  if (isCompleted) {
+  if (currentPage === 'thankyou') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8 flex items-center justify-center">
         <ThankYouPage />
