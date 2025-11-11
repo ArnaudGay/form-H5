@@ -69,7 +69,7 @@ export function ThankYouPage() {
                   <div className="content-stretch flex flex-col gap-[12px] relative">
                     <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px]">
                       🔗 <a 
-                        href="https://form.arnaudgay.fr"
+                        href="https://form-h5.netlify.app"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[16px] md:text-[18px] text-[#008e5c] hover:text-[#007a4f] underline"
