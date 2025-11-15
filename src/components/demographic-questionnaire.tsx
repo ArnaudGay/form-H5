@@ -5,6 +5,8 @@ interface DemographicsData {
   age: string;
   education: string;
   region: string;
+  acceptContact: boolean;
+  email: string | null;
 }
 
 interface DemographicsPageProps {
@@ -16,6 +18,8 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
   const [age, setAge] = useState('');
   const [education, setEducation] = useState('');
   const [region, setRegion] = useState('');
+  const [acceptContact, setAcceptContact] = useState(false);
+  const [email, setEmail] = useState('');
 
   const ageRanges = [
     '18-24 ans',
@@ -54,11 +58,24 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
     'Mayotte'
   ];
 
-  const canProceed = age !== '' && education !== '' && region !== '';
+  // Validation : si acceptContact est true, email doit être rempli et valide
+  const isEmailValid = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const canProceed = age !== '' && education !== '' && region !== '' && 
+    (!acceptContact || (email !== '' && isEmailValid(email)));
 
   const handleSubmit = () => {
     if (canProceed) {
-      onComplete({ age, education, region });
+      onComplete({ 
+        age, 
+        education, 
+        region, 
+        acceptContact,
+        email: acceptContact ? email : null
+      });
     }
   };
 
@@ -98,14 +115,15 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
                     <select
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
-                      className="bg-white border border-gray-200 rounded-[10px] px-[16px] py-[14px] pr-[40px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] focus:ring-2 focus:ring-[#008e5c]/20 hover:border-gray-400 transition-all duration-200 ease-in-out w-full shadow-sm hover:shadow-md focus:shadow-md cursor-pointer appearance-none"
+                      style={{ paddingTop: '14px', paddingBottom: '14px' }}
+                      className="bg-white border border-gray-200 rounded-[71px] px-[24px] pr-[48px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] hover:border-gray-400 transition-colors duration-200 w-full cursor-pointer appearance-none"
                     >
                       <option value="">Sélectionnez votre tranche d'âge</option>
                       {ageRanges.map((range) => (
                         <option key={range} value={range}>{range}</option>
                       ))}
                     </select>
-                    <div className="absolute right-[12px] top-1/2 -translate-y-1/2 pointer-events-none">
+                    <div className="absolute right-[20px] top-1/2 -translate-y-1/2 pointer-events-none">
                       <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -122,14 +140,15 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
                     <select
                       value={education}
                       onChange={(e) => setEducation(e.target.value)}
-                      className="bg-white border border-gray-200 rounded-[10px] px-[16px] py-[14px] pr-[40px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] focus:ring-2 focus:ring-[#008e5c]/20 hover:border-gray-400 transition-all duration-200 ease-in-out w-full shadow-sm hover:shadow-md focus:shadow-md cursor-pointer appearance-none"
+                      style={{ paddingTop: '14px', paddingBottom: '14px' }}
+                      className="bg-white border border-gray-200 rounded-[71px] px-[24px] pr-[48px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] hover:border-gray-400 transition-colors duration-200 w-full cursor-pointer appearance-none"
                     >
                       <option value="">Sélectionnez votre niveau d'études</option>
                       {educationLevels.map((level) => (
                         <option key={level} value={level}>{level}</option>
                       ))}
                     </select>
-                    <div className="absolute right-[12px] top-1/2 -translate-y-1/2 pointer-events-none">
+                    <div className="absolute right-[20px] top-1/2 -translate-y-1/2 pointer-events-none">
                       <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -146,19 +165,74 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
                     <select
                       value={region}
                       onChange={(e) => setRegion(e.target.value)}
-                      className="bg-white border border-gray-200 rounded-[10px] px-[16px] py-[14px] pr-[40px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] focus:ring-2 focus:ring-[#008e5c]/20 hover:border-gray-400 transition-all duration-200 ease-in-out w-full shadow-sm hover:shadow-md focus:shadow-md cursor-pointer appearance-none"
+                      style={{ paddingTop: '14px', paddingBottom: '14px' }}
+                      className="bg-white border border-gray-200 rounded-[71px] px-[24px] pr-[48px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] outline-none focus:border-[#008e5c] hover:border-gray-400 transition-colors duration-200 w-full cursor-pointer appearance-none"
                     >
                       <option value="">Sélectionnez votre région</option>
                       {regions.map((reg) => (
                         <option key={reg} value={reg}>{reg}</option>
                       ))}
                     </select>
-                    <div className="absolute right-[12px] top-1/2 -translate-y-1/2 pointer-events-none">
+                    <div className="absolute right-[20px] top-1/2 -translate-y-1/2 pointer-events-none">
                       <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
                   </div>
+                </div>
+
+                {/* Contact Checkbox */}
+                <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full pt-[8px]">
+                  {/* Titre de la question */}
+                  <label className="font-['Arial:Regular',sans-serif] leading-[20px] not-italic text-[#323232] text-[14px] md:text-[16px]">
+                    Acceptez-vous de recevoir des informations par email ?
+                  </label>
+                  
+                  {/* Checkbox avec texte */}
+                  <div className="content-stretch flex items-center gap-[16px] relative shrink-0 w-full">
+                    <input
+                      type="checkbox"
+                      id="acceptContact"
+                      checked={acceptContact}
+                      onChange={(e) => {
+                        setAcceptContact(e.target.checked);
+                        if (!e.target.checked) {
+                          setEmail('');
+                        }
+                      }}
+                      className="w-[18px] h-[18px] rounded-[4px] border border-gray-200 text-[#008e5c] cursor-pointer accent-[#008e5c] shrink-0"
+                    />
+                    <label 
+                      htmlFor="acceptContact"
+                      className="font-['Arial:Regular',sans-serif] leading-[1.5] not-italic text-[#323232] text-[14px] md:text-[16px] cursor-pointer flex-1"
+                    >
+                      Oui, je souhaite recevoir des informations par email
+                    </label>
+                  </div>
+
+                  {/* Email Input - affiché seulement si checkbox cochée */}
+                  {acceptContact && (
+                    <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full">
+                      <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Entrez votre email"
+                        style={{ paddingTop: '14px', paddingBottom: '14px' }}
+                        className={`bg-white border rounded-[71px] px-[24px] font-['Arial:Regular',sans-serif] text-[14px] md:text-[16px] text-[#323232] placeholder:text-gray-400 outline-none hover:border-gray-400 transition-colors duration-200 w-full ${
+                          email !== '' && !isEmailValid(email)
+                            ? 'border-red-300 focus:border-red-500'
+                            : 'border-gray-200 focus:border-[#008e5c]'
+                        }`}
+                      />
+                      {email !== '' && !isEmailValid(email) && (
+                        <p className="font-['Arial:Regular',sans-serif] leading-[1.4] not-italic text-red-500 text-[12px] md:text-[13px]">
+                          Veuillez entrer une adresse e-mail valide
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

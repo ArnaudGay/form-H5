@@ -25,6 +25,8 @@ interface DemographicsData {
   age: string;
   education: string;
   region: string;
+  acceptContact: boolean;
+  email: string | null;
 }
 
 const subjects: Subject[] = [
