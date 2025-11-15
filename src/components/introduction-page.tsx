@@ -22,7 +22,7 @@ export function IntroPage({ onStart }: IntroPageProps) {
                 </div>
                 <div className="relative shrink-0">
                   <p className="font-['Arial:Regular',sans-serif] leading-[20px] md:leading-[24px] not-italic text-[#717182] text-[14px] md:text-[16px]">
-                    L'étude sur le deuil plus justement accompagné
+                    7 minutes pour nous aider à mieux vous accompagner sur le sujet du deuil
                   </p>
                 </div>
               </div>
@@ -32,19 +32,19 @@ export function IntroPage({ onStart }: IntroPageProps) {
             <div className="relative shrink-0 w-full">
               <div className="bg-clip-padding border-0 border-[transparent] border-solid box-border content-stretch flex flex-col gap-[24px] md:gap-[32px] items-start px-[12px] md:px-[24px] py-0 relative">
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  Nous sommes étudiants en Master 2 et menons une recherche pour mieux comprendre les besoins des personnes qui souhaitent préparer leur succession et leurs dernières volontés. Ce questionnaire constitue la première étape d'un projet d'un an visant à développer une solution adaptée aux enjeux identifiés.
+                  Nous sommes étudiants en Master 2 et menons une recherche sur les besoins des personnes qui souhaitent préparer leur succession et organiser leurs dernières volontés.<br /> Ce questionnaire est la première étape d'un projet visant à développer une solution concrète.
                 </p>
                 
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  Nous vous demandons d'évaluer l'importance de différents besoins relatifs à l'organisation de vos affaires, ainsi que votre satisfaction quant aux ressources ou accompagnement actuellement disponibles. Vos réponses nous aideront à identifier les priorités sur lesquelles concentrer notre effort.
+                  Nous avons tous connu, de près ou de loin, le moment difficile où nous perdons un proche. Ces instants d'une grande vulnérabilité nous affectent chacun différemment.<br /> C'est de ce constat qu'est née notre démarche : trouver les moyens d'accompagner les gens dans ces moments complexes.
                 </p>
                 
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  Cette démarche, bien que portant sur un sujet souvent mis de côté, contribue à anticiper sereinement les démarches administratives, légales et personnelles qui vous importent.
+                  À travers ce questionnaire, nous vous invitons à évaluer l'importance de différents aspects liés à l'organisation de ce qui compte pour vous — vos biens, vos volontés, vos démarches — ainsi que votre satisfaction vis-à-vis de l'accompagnement actuellement disponible.<br /> Vos réponses nous guideront pour identifier les priorités sur lesquelles agir.
                 </p>
                 
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  Merci sincèrement de votre confiance et de votre temps.
+                  Aborder ce sujet n'est jamais facile, mais cette démarche permet d'anticiper sereinement les aspects administratifs, légaux et personnels qui vous tiennent à cœur.<br /> Merci sincèrement de votre confiance et du temps que vous nous accordez.
                 </p>
               </div>
             </div>
