@@ -40,7 +40,7 @@ export function IntroPage({ onStart }: IntroPageProps) {
                 </p>
                 
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  À travers ce questionnaire, nous vous invitons à évaluer l'importance de différents aspects liés à l'après-décès — l'annonce, les formalités administratives, la gestion du patrimoine, la succession, les animaux, etc. — ainsi que votre satisfaction vis-à-vis de l'accompagnement actuellement disponible.<br /> Vos réponses nous guideront pour identifier les priorités sur lesquelles agir.
+                  À travers ce questionnaire, nous vous invitons à évaluer l'importance de différents aspects liés à l'après-décès: l'annonce, les formalités administratives, la gestion du patrimoine, la succession, les animaux, etc. Ainsi que votre satisfaction vis-à-vis de l'accompagnement actuellement disponible.<br /> Vos réponses nous guideront pour identifier les priorités sur lesquelles agir.
                 </p>
                 
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">

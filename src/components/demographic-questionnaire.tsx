@@ -185,7 +185,7 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
                 <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full pt-[8px]">
                   {/* Titre de la question */}
                   <label className="font-['Arial:Regular',sans-serif] leading-[20px] not-italic text-[#323232] text-[14px] md:text-[16px]">
-                    Acceptez-vous de recevoir des informations par email ?
+                    Acceptez-vous d'être recontacté par email ?
                   </label>
                   
                   {/* Checkbox avec texte */}
@@ -206,7 +206,7 @@ export function DemographicsPage({ onComplete, onBack }: DemographicsPageProps) 
                       htmlFor="acceptContact"
                       className="font-['Arial:Regular',sans-serif] leading-[1.5] not-italic text-[#323232] text-[14px] md:text-[16px] cursor-pointer flex-1"
                     >
-                      Oui, je souhaite recevoir des informations par email
+                      Oui, j'accepte d'être recontacté.
                     </label>
                   </div>
 
