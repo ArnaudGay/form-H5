@@ -30,122 +30,108 @@ interface DemographicsData {
 }
 
 const subjects: Subject[] = [
-  {
+    {
     id: 1,
     title: "Sujet n°1",
-    mainQuestion: "Je veux faire en sorte que mes proches n'aient pas à gérer seuls de nombreuses démarches compliquées ou imprévues après mon décès.",
+    mainQuestion: "Je veux être aidé pour débloquer rapidement les fonds nécessaires et accomplir toutes les démarches liées au paiement des obsèques et à la succession.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 2,
     title: "Sujet n°2",
-    mainQuestion: "Je veux que mes proches sachent où trouver mes dernières volontés sans stress ni confusion.",
+    mainQuestion: "Je veux disposer d’une solution pour régler sans attendre les premiers frais d’obsèques, sans devoir avancer d’argent ou m’endetter.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 3,
     title: "Sujet n°3",
-    mainQuestion: "Je veux pouvoir réfléchir et préparer ma mort sans ressentir de gêne, de peur ou de tabou.",
+    mainQuestion: "Je veux être accompagné pour effectuer, sans rien oublier ni doubler, toutes les résiliations et démarches administratives après le décès de mon proche.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 4,
     title: "Sujet n°4",
-    mainQuestion: "Je veux être sûr que mes volontés seront respectées par les institutions et mes proches.",
+    mainQuestion: "Je veux que les démarches administratives soient simples, centralisées et accessibles en ligne.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 5,
     title: "Sujet n°5",
-    mainQuestion: "Je veux anticiper les décisions médicales de fin de vie avant de ne plus pouvoir les exprimer.",
+    mainQuestion: "Je veux organiser l’inhumation ou la crémation dans les délais légaux, avec un accompagnement pour coordonner tous les acteurs concernés.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 6,
     title: "Sujet n°6",
-    mainQuestion: "Je veux que mes proches disposent d'un guide clair leur indiquant toutes les démarches à effectuer après mon décès.",
+    mainQuestion: "Je veux bénéficier d’un interlocuteur unique ou d’un service dédié qui m’accompagne du début à la fin du processus.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 7,
     title: "Sujet n°7",
-    mainQuestion: "Je veux pouvoir facilement organiser et laisser à mes proches tout ce qui leur sera utile après mon décès.",
+    mainQuestion: "Je veux accéder rapidement à toutes les informations utiles (guide, liste de démarches, prestataires), sans avoir à chercher partout.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 8,
     title: "Sujet n°8",
-    mainQuestion: "Je veux disposer d'un espace unique où rassembler tous mes documents importants liés à ma fin de vie.",
+    mainQuestion: "Je veux savoir quoi faire des comptes et des données numériques, et être accompagné pour respecter les dernières volontés tout en sécurisant les accès et données.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 9,
     title: "Sujet n°9",
-    mainQuestion: "Je veux que toute ma démarche d'anticipation soit claire, simple et sécurisée.",
+    mainQuestion: "Je veux que les démarches successorales soient rendues transparentes, avec un suivi clair pour chaque étape jusqu’à la clôture.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 10,
     title: "Sujet n°10",
-    mainQuestion: "Je veux que mes données numériques soient gérées et transmises selon mes choix.",
+    mainQuestion: "Je veux que le processus de déclaration du décès soit facilité et automatisé auprès des différents organismes.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 11,
     title: "Sujet n°11",
-    mainQuestion: "Je veux me sentir apaisé en sachant que rien d'essentiel n'a été oublié dans ma préparation.",
+    mainQuestion: "Je veux pouvoir comparer facilement les devis des services funéraires pour choisir sereinement, sans risque de surpayer et dans le respect des volontés de mon proche.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 12,
     title: "Sujet n°12",
-    mainQuestion: "Je veux éviter à mes proches tout conflit possible après mon décès.",
+    mainQuestion: "Je veux être accompagné dans les démarches auprès des banques afin d’éviter les blocages et résoudre les interrogations sur les comptes et la succession.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 13,
     title: "Sujet n°13",
-    mainQuestion: "Je veux accéder facilement à des informations simples et concrètes sur ce que je dois préparer avant ma mort.",
+    mainQuestion: "Je veux regrouper, stocker et partager tous les documents relatifs à la succession et aux démarches après décès dans un espace sécurisé en ligne.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 14,
     title: "Sujet n°14",
-    mainQuestion: "Je veux comprendre les coûts réels liés à la mort pour mieux les prévoir.",
+    mainQuestion: "Je veux être guidé pour rassembler tous les documents nécessaires auprès des différents assureurs afin de percevoir le capital le plus rapidement possible.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   },
   {
     id: 15,
     title: "Sujet n°15",
-    mainQuestion: "Je veux rédiger mon testament ou exprimer mes volontés sans rencontrer d'obstacles administratifs ou financiers.",
-    importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
-    satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
-  },
-  {
-    id: 16,
-    title: "Sujet n°16",
-    mainQuestion: "Je veux pouvoir planifier sereinement mes aspects financiers liés au décès.",
-    importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
-    satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
-  },
-  {
-    id: 17,
-    title: "Sujet n°17",
-    mainQuestion: "Je veux comprendre clairement les implications légales de mes choix de fin de vie.",
+    mainQuestion: "Je veux comprendre en détail les différentes étapes à suivre pour ne rien oublier et être rassuré.",
     importanceQuestion: "Quelle est l'importance de ce besoin pour vous ?",
     satisfactionQuestion: "Quel est votre niveau de satisfaction actuel ?"
   }
