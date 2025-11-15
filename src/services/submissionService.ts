@@ -4,6 +4,8 @@ export interface DemographicsData {
   age: string;
   education: string;
   region: string;
+  acceptContact: boolean;
+  email: string | null;
 }
 
 export interface AnswerData {
@@ -23,14 +25,19 @@ export interface SubmissionData {
  */
 export async function submitQuestionnaireData(data: SubmissionData): Promise<{ success: boolean; error?: string }> {
   try {
+    // Préparer les données démographiques (sans acceptContact et email qui sont dans des colonnes séparées)
+    const { acceptContact, email, ...demographicsWithoutContact } = data.demographics;
+
     // Insérer les données dans la table 'submissions'
     const { error } = await supabase
       .from('submissions')
       .insert([
         {
-          demographics: data.demographics,
+          demographics: demographicsWithoutContact,
           answers: data.answers,
           submitted_at: data.submittedAt,
+          accept_contact: acceptContact,
+          email: email,
         },
       ]);
 
