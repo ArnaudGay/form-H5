@@ -1,6 +1,9 @@
 import React from 'react';
+import { useConfetti } from '../hooks/useConfetti';
 
 export function ThankYouPage() {
+  useConfetti(3000);
+
   return (
     <div className="bg-white relative rounded-[14px] w-full max-w-[940px]">
       <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.1)] border-solid inset-0 pointer-events-none rounded-[14px] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]" />
@@ -62,7 +65,7 @@ export function ThankYouPage() {
               {/* Share Section */}
               <div className="content-stretch flex flex-col gap-[16px] md:gap-[20px] relative w-full">
                 <p className="font-['Arial:Regular',sans-serif] leading-[1.6] md:leading-[1.7] not-italic text-[#323232] text-[16px] md:text-[18px] w-full">
-                  Tu peux aussi <strong>partager ce questionnaire</strong> à des ami·es qui vivent la même situation :
+                  Tu peux aussi <strong>partager ce questionnaire</strong> à tes proches pour nous aider :
                 </p>
                 
                 <div className="bg-[#f5f5f5] border border-gray-200 rounded-[12px] px-[20px] md:px-[24px] py-[20px] md:py-[24px] relative w-full">
